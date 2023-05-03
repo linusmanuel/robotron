@@ -1,5 +1,7 @@
 const controle = document.querySelectorAll('[data-controle]');
 const estatisticas = document.querySelectorAll('[data-estatistica]');
+const robotron = document.querySelector('#robotron');
+const colors = document.querySelectorAll('[data-color]');
 const pecas = {
 	bracos: {
 		forca: 29,
@@ -56,4 +58,14 @@ const atualizaEstatisticas = (peca) => {
 			parseInt(elemento.textContent) +
 			pecas[peca][elemento.dataset.estatistica];
 	});
+};
+
+colors.forEach((elemento) => {
+	elemento.addEventListener('click', (evento) => {
+		choiceColor(elemento.dataset.color);
+	});
+});
+
+const choiceColor = (color) => {
+	robotron.src = `img/robotron-${color}.png`;
 };
